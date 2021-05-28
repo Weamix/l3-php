@@ -25,9 +25,8 @@ class Router{
         $controller=null;
 
         foreach ($routes as $route){
-            echo $route['path']."<br>";
                 if($uri == $route['path']){
-                    $controller = $route['controller'];
+                    $controller = "App\Controller\\".$route['controller'];
                 } else{
                     echo "404";
                     header("HTTP/1.0 404 Not Found");
@@ -38,4 +37,5 @@ class Router{
             list($controllerObject, $method) = explode("@", $controller);
             return call_user_func_array([$controllerObject, $method], []);
         }
+
 }
