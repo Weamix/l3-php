@@ -6,13 +6,6 @@
     * ne pas oublié les getter/setter
     * avec les methodes : accelerer et ralentir
     * creer une constante pour le nombre de roue ( 4 )
-
-
-2.
-    * Creer une class abstraite "Parole" definie comme suit
-        * methode direBonjour()
-    * creer une class est herite de la class abstraite Parole : "ParoleFrancais"
-        * la methode direBonjour affiche bonjour en francais
 */
 
 class Voiture
