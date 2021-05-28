@@ -184,3 +184,11 @@ array(4) {
     [3]=>
     string(9) "p8333335p"
 }*/
+
+echo '<br>';
+function length($a, $b) {
+    if (strlen($a) == strlen($b)) return 0;
+    return (strlen($a) < strlen($b)) ? -1 : 1;
+}
+usort($keys, "length");
+var_dump($keys);
