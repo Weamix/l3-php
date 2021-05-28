@@ -10,5 +10,6 @@ class HomeController
      */
     public function __construct()
     {
+        return "Hello, welcome at home !";
     }
 }

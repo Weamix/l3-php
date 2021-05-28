@@ -9,6 +9,7 @@ error_reporting(E_ALL);
 require_once "Autoload.php";
 Autoload::register();
 
+// TP3 part 1 : auto loader
 use App\Entity\Product;
 use App\Controller\HomeController;
 
@@ -17,3 +18,8 @@ $controller = new HomeController();
 
 var_dump($product);
 var_dump($controller);
+
+// TP3 part 2 : router
+
+$router = new Router();
+$router->process();
