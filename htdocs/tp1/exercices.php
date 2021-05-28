@@ -161,6 +161,13 @@ foreach($pays_population as $pays => $pop) {
     echo $pays." : il y a " .$pop." d'habitants<br>";
 }
 
+echo '<br>';
+$map =  array_map(function ($pays, $pop) {
+    return $pays . " : il y a " . $pop . " d'habitants<br>";
+}, array_keys($pays_population), $pays_population);
+
+foreach ($map as $value) echo $value;
+
 /**
  * 11.
  * En utilisant le tableau de keys ci-dessous, reordonner le pour le ranger par taille de longueur de chaine de caractere
