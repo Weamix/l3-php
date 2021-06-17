@@ -4,7 +4,6 @@ class Connexion
 {
     // TODO retourner instance de PDO
     // Ca doit etre singleton
-
     public static function instance()
     {
         $username = 'root';
@@ -14,6 +13,4 @@ class Connexion
 
         return new PDO('mysql:host='. $host .';dbname='. $dbname .'', $username, $password);
     }
-
 }
-

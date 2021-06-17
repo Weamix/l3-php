@@ -1,4 +1,3 @@
-
 <?php
 
 namespace App\Entity\Repository;
@@ -12,7 +11,6 @@ class Product extends AbstractRepository implements RepositoryInterface
      */
     public function findAll() : array
     {
-
         //TODO return all row from table
         $products = [];
 
@@ -31,11 +29,16 @@ class Product extends AbstractRepository implements RepositoryInterface
     public function find(int $id) : EntityInterface
     {
         //TODO return produit filtré par id
+        $request = $this->getConnexion()->prepare("SELECT * FROM products WHERE id = :id");
+        $request->bindParam(':id', $id);
+        $request->execute();
+        $result = $request->fetch();
+
+        return new \App\Entity\Product($result['name'], $result['price']);
     }
 
     /**
-     * @param $column
-     * @param $value
+     * @param int $id
      * @return EntityInterface[]
      */
     public function findBy($column, $value) : array

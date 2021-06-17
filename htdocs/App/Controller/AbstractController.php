@@ -1,18 +1,9 @@
 <?php
 
-
 namespace App\Controller;
-
-
 abstract class AbstractController
 {
-    const TEMPLATE_PATH = "templates/";
-
-    /*public function render(string $templateName, array $args = []){
-        extract($args);
-        include_once(self::TEMPLATE_PATH . $templateName);
-    }*/
-
+    const TEMPLATE_PATH = '/templates/';
     private $data = [];
 
     function render(string $template, array $args = []): void
