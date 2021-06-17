@@ -10,11 +10,11 @@ class Product implements EntityInterface
     private $price;
 
 
-    public function __construct($name, $price)
+/*    public function __construct($name, $price)
     {
         $this->name = $name;
         $this->price = $price;
-    }
+    }*/
 
     /**
      * @return mixed

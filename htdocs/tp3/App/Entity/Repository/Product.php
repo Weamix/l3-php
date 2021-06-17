@@ -5,14 +5,23 @@ namespace App\Entity\Repository;
 
 use App\Entity\EntityInterface;
 
-class Product implements RepositoryInterface
+class Product extends AbstractRepository implements RepositoryInterface
 {
     /**
      * @return EntityInterface[]
      */
     public function findAll() : array
     {
+
         //TODO return all row from table
+        $products = [];
+
+        foreach ($this->getConnexion()->query('SELECT * from products') as $row) {
+            $product = new \App\Entity\Product($row['name'], $row['price']);
+            array_push($products, $product);
+        }
+
+        return $products;
     }
 
     /**

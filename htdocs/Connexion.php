@@ -5,36 +5,14 @@ class Connexion
     // TODO retourner instance de PDO
     // Ca doit etre singleton
 
-    private static $instance;
-    private $type = "mysql";
-    private $host = "mysql";
-    private $dbname = "eurovent";
-    private $username = "root";
-    private $password = 'password';
-    private $db;
-
-    private function __construct()
+    public static function instance()
     {
-            $this->db = new PDO(
-                $this->type.':host='.$this->host.'; dbname='.$this->dbname,
-                $this->username,
-                $this->password,
-                array(PDO::ATTR_PERSISTENT => true)
-            );
-    }
+        $username = 'root';
+        $password = 'password';
+        $host = 'mysql';
+        $dbname = 'eurovent';
 
-    public static function getInstance()
-    {
-        if (!self::$instance instanceof self)
-        {
-            self::$instance = new self;
-        }
-        return self::$instance;
-    }
-
-    public function getDbh()
-    {
-        return $this->db;
+        return new PDO('mysql:host='. $host .';dbname='. $dbname .'', $username, $pass);
     }
 
 }
