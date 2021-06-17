@@ -12,7 +12,7 @@ class Connexion
         $host = 'mysql';
         $dbname = 'eurovent';
 
-        return new PDO('mysql:host='. $host .';dbname='. $dbname .'', $username, $pass);
+        return new PDO('mysql:host='. $host .';dbname='. $dbname .'', $username, $password);
     }
 
 }
