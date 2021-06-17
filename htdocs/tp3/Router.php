@@ -27,6 +27,7 @@ class Router{
         foreach ($routes as $route){
                 if($uri == $route['path']){
                     $controllerAll = "App\Controller\\".$route['controller'];
+                    break;
                 } else{
                     echo "404";
                     http_response_code(404);die;

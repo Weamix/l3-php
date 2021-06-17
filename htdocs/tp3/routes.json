@@ -1,16 +1,16 @@
 {
   "home": {
-    "path": "/tp3/index.php/",
+    "path": "/",
     "controller": "HomeController@home"
   },
 
   "catalog": {
-    "path": "/tp3/index.php/catalog",
+    "path": "/catalog",
     "controller": "CatalogController@view"
   },
 
   "catalog_product": {
-    "path": "/tp3/index.php/catalog/product",
+    "path": "/catalog/product",
     "controller": "CatalogController@viewProduct"
   }
 }
