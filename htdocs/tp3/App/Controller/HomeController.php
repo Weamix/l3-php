@@ -5,11 +5,10 @@ namespace App\Controller;
 class HomeController extends AbstractController
 {
 
-    /**
-     * HomeController constructor.
-     */
-    public function __construct()
+    public function home()
     {
-        echo "Hello, welcome at home !";
+        //echo "Hello, welcome at home !";
+        echo $this->render('home.phtml', []);
+
     }
 }

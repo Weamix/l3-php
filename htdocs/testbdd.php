@@ -27,10 +27,10 @@ echo "Table created successfully";
 
 // INSERT
 
-$sql = "INSERT INTO Matchs (id, player1, player2) VALUES (2,'Allemagne','France')";
+$sql = "INSERT INTO Matchs (player1, player2) VALUES ('Allemagne','France')";
 $request = $db->prepare($sql);
 $request->execute();
-echo "Table created successfully";
+echo "Insert successfully";
 
 // SELECT
 foreach ($db->query('SELECT * from Matchs') as $row) {

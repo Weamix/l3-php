@@ -1,5 +1,11 @@
-<h1>list products</h1> :
+<?php
+$productList = $this->getData('products');
+?>
 
-<?php foreach ($products as $product) {
-    echo $product["name"];
-}?>
+<ul>
+
+    <?php foreach ($productList as $product) : ?>
+        <li><?= $product->getName() ?> à <?= $product->getPrice() ?>€</li>
+    <?php endforeach; ?>
+</ul>
+
