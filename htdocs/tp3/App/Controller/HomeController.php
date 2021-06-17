@@ -2,7 +2,7 @@
 
 namespace App\Controller;
 
-class HomeController
+class HomeController extends AbstractController
 {
 
     /**
@@ -10,6 +10,6 @@ class HomeController
      */
     public function __construct()
     {
-        return "Hello, welcome at home !";
+        echo "Hello, welcome at home !";
     }
 }

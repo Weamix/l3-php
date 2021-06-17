@@ -7,11 +7,11 @@ namespace App\Controller;
 class CatalogController
 {
     public function view(){
-        return "view catalog";
+        echo "view catalog";
     }
 
     public function viewProduct(){
-        return "view product";
+        echo "view product";
     }
 
 }

@@ -18,24 +18,25 @@ class Router{
         */
 
         $uri = $_SERVER['REQUEST_URI'];
-        var_dump($uri);
+        //var_dump($uri);
 
         $json = file_get_contents("routes.json");
         $routes = json_decode($json, true);
-        $controller=null;
+        $controllerAll="";
 
         foreach ($routes as $route){
                 if($uri == $route['path']){
-                    $controller = "App\Controller\\".$route['controller'];
+                    $controllerAll = "App\Controller\\".$route['controller'];
                 } else{
                     echo "404";
-                    header("HTTP/1.0 404 Not Found");
-                    http_response_code(404);
+                    http_response_code(404);die;
                 }
             }
 
-            list($controllerObject, $method) = explode("@", $controller);
-            return call_user_func_array([$controllerObject, $method], []);
-        }
+            //return call_user_func_array([$controllerObject, $method], []);
 
+            list($controllerObject, $method) = explode("@", $controllerAll);
+            echo (new $controllerObject())->{$method}();
+        }
 }
+
