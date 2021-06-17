@@ -1,2 +1,2 @@
 <?php
-$product["name"];
+echo $product["name"];
