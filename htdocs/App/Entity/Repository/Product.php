@@ -3,6 +3,7 @@
 namespace App\Entity\Repository;
 
 use App\Entity\EntityInterface;
+use \PDO;
 
 class Product extends AbstractRepository implements RepositoryInterface
 {
@@ -12,14 +13,18 @@ class Product extends AbstractRepository implements RepositoryInterface
     public function findAll() : array
     {
         //TODO return all row from table
-        $products = [];
+        //$products = [];
 
-        foreach ($this->getConnexion()->query('SELECT * from products') as $row) {
-            $product = new \App\Entity\Product($row['name'], $row['price']);
-            array_push($products, $product);
+        /*foreach ($this->getConnexion()->query('SELECT * from products') as $row) {
+          $product = new \App\Entity\Product($row['name'], $row['price']);
+          array_push($products, $product);
         }
+        return $products;*/
 
-        return $products;
+        //fetch class
+        $sql = "SELECT * from products";
+        $query = $this->getConnexion()->query($sql);
+        return $query->fetchAll(PDO::FETCH_CLASS, \App\Entity\Product::class);
     }
 
     /**
