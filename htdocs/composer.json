@@ -1,0 +1,16 @@
+{
+    "name": "l3/web",
+    "description": "Projet l3 web avance",
+    "autoload": {
+        "psr-4": {
+            "L3\\Web\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Maxime Vitse",
+            "email": "maxime@live.com"
+        }
+    ],
+    "require": {}
+}

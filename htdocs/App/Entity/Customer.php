@@ -4,7 +4,7 @@ namespace App\Entity;
 
 class Customer implements EntityInterface
 {
-        // TODO customer
+    // TODO customer
     private $lastname;
     private $firstname;
     private $age;

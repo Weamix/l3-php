@@ -42,10 +42,10 @@ class Product extends AbstractRepository implements RepositoryInterface,EntityIn
         return new \App\Entity\Product($result['name'], $result['price']);
         */
 
-        $request = $this->getConnexion()->prepare('SELECT * FROM products WHERE id= :id');
-        $request->bindParam(':id', $id);
-        $request->execute();
-        return $request->fetchObject(\App\Entity\Product::class);
+        $sql = $this->getConnexion()->prepare('SELECT * FROM products WHERE id= :id');
+        $sql->bindParam(':id', $id);
+        $sql->execute();
+        return $sql->fetchObject(\App\Entity\Product::class);
     }
 
     /**
@@ -54,6 +54,8 @@ class Product extends AbstractRepository implements RepositoryInterface,EntityIn
      */
     public function findBy($column, $value) : array
     {
-        //TODO return produit filtré par id
+        $sql = "SELECT * FROM products WHERE $column = $value";
+        $query = $this->getConnexion()->query($sql);
+        return $query->fetchAll(PDO::FETCH_CLASS, \App\Entity\Product::class);
     }
 }

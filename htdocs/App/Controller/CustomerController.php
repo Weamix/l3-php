@@ -2,28 +2,24 @@
 
 namespace App\Controller;
 
-use App\Entity\Product;
+use App\Entity\Customer;
 
-class CatalogController extends AbstractController
+class CustomerController extends AbstractController
 {
 
     public function view()
     {
-        $list_product = [];
-        $list_product_by_id= [];
+        $customers = [];
+        $customer_by_id = [];
+        $customer_by_column = [];
 
-        $productRepo = new \App\Entity\Repository\Product();
-        $list_product = $productRepo->findAll();
+        $customerRepo = new \App\Entity\Repository\Customer();
+        $customers = $customerRepo->findAll();
 
-        $list_product_by_id = $productRepo->findBy('price',100);
+        $customer_by_id = $customerRepo->find(1);
 
-        $this->render('catalogue/view.phtml', ['products' => $list_product , 'products_by_id' => $list_product_by_id]);
-    }
+        //$customer_by_column = $customerRepo->findBy('lastname','test');
 
-    public function viewProduct(){
-        $productRepo = new \App\Entity\Repository\Product();
-        $product = $productRepo->find(1);
-        $this->render("catalogue/viewProduct.phtml", ['product' => $product]);
-        //echo "view product";
+        $this->render('customer/viewCustomer.phtml', ['customers' => $customers ,'customer_by_id' => $customer_by_id, 'customer_by_column' => $customer_by_column]);
     }
 }

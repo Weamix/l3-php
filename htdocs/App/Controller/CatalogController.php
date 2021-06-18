@@ -10,11 +10,14 @@ class CatalogController extends AbstractController
     public function view()
     {
         $list_product = [];
+        $list_product_by_id= [];
 
         $productRepo = new \App\Entity\Repository\Product();
         $list_product = $productRepo->findAll();
 
-        $this->render('catalogue/view.phtml', ['products' => $list_product]);
+        $list_product_by_id = $productRepo->findBy('price',100);
+
+        $this->render('catalogue/view.phtml', ['products' => $list_product , 'products_by_id' => $list_product_by_id]);
     }
 
     public function viewProduct(){

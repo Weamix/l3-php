@@ -10,20 +10,20 @@ Ma view Customer Page : findAll
 <ul>
 
 <?php foreach ($customers as $customer) : ?>
-    <li><?= $customer->getLastname() ?> à <?= $customer->getFirstname() ?>€</li>
+    <li> Le client Mr/Mme <?= $customer->getLastname() ?> <?= $customer->getFirstname() ?> a <?= $customer->getAge() ?> ans </li>
 <?php endforeach; ?>
 </ul>
 
     Ma view Customer Page : findBy
     <ul>
 <?php foreach ($customer_by_column as $customer) : ?>
-    <li><?= $customer->getLastname() ?> à <?= $customer->getFirstname() ?>€</li>
+    <li> Le client Mr/Mme <?= $customer->getLastname() ?> <?= $customer->getFirstname() ?> a <?= $customer->getAge() ?> ans </li>
 <?php endforeach; ?>
     </ul>
 
     Ma view Customer Page : find($id)
     <ul>
-            <li><?= $customer_by_id->getLastname() ?> à <?= $customer_by_id->getFirstname() ?>€</li>
+        <li> Le client Mr/Mme <?= $customer->getLastname() ?> <?= $customer->getFirstname() ?> a <?= $customer->getAge() ?> ans </li>
     </ul>
 
 

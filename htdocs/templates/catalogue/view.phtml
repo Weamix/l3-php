@@ -1,15 +1,23 @@
 <?php
 $productList = $this->getData('products');
+$list_product_by_id =  $this->getData('products_by_id');
 ?>
 
 <?php include(BASE_DIR . '/templates/head.phtml') ?>
 
-Ma view Catalog Page
+Ma view Catalog Page : findAll
 <ul>
 
 <?php foreach ($productList as $product) : ?>
     <li><?= $product->getName() ?> à <?= $product->getPrice() ?>€</li>
 <?php endforeach; ?>
 </ul>
+
+    Ma view Catalog Page : findBy
+    <ul>
+<?php foreach ($list_product_by_id as $product) : ?>
+    <li><?= $product->getName() ?> à <?= $product->getPrice() ?>€</li>
+<?php endforeach; ?>
+    </ul>
 
 <?php include(BASE_DIR . '/templates/footer.phtml') ?>
