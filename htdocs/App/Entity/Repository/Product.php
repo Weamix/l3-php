@@ -5,7 +5,7 @@ namespace App\Entity\Repository;
 use App\Entity\EntityInterface;
 use \PDO;
 
-class Product extends AbstractRepository implements RepositoryInterface
+class Product extends AbstractRepository implements RepositoryInterface,EntityInterface
 {
     /**
      * @return EntityInterface[]
@@ -34,12 +34,18 @@ class Product extends AbstractRepository implements RepositoryInterface
     public function find(int $id) : EntityInterface
     {
         //TODO return produit filtré par id
+        /*
         $request = $this->getConnexion()->prepare("SELECT * FROM products WHERE id = :id");
         $request->bindParam(':id', $id);
         $request->execute();
         $result = $request->fetch();
-
         return new \App\Entity\Product($result['name'], $result['price']);
+        */
+
+        $request = $this->getConnexion()->prepare('SELECT * FROM products WHERE id= :id');
+        $request->bindParam(':id', $id);
+        $request->execute();
+        return $request->fetchObject(\App\Entity\Product::class);
     }
 
     /**
