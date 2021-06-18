@@ -10,4 +10,4 @@ Branch master :
 Branch tp5 : 
 ### TP4 : render view (templates) ✅ 
 ### TP5 : pdo + connexion singleton + repository product&customer ✅
-### TP6 : composer/guzzle/todos 
+### TP6 : composer/guzzle/todos ✅
