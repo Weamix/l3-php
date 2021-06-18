@@ -9,8 +9,10 @@
     "authors": [
         {
             "name": "Maxime Vitse",
-            "email": "maxime@live.com"
+            "email": "maxime.vitse@live.com"
         }
     ],
-    "require": {}
+    "require": {
+        "guzzlehttp/guzzle": "^7.3"
+    }
 }
