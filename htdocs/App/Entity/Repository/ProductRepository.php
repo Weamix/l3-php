@@ -2,9 +2,6 @@
 
 namespace App\Entity\Repository;
 
-use App\Entity\EntityInterface;
-use \PDO;
-
 class ProductRepository extends AbstractRepository
 {
     public function __construct(){

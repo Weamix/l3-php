@@ -1,7 +1,6 @@
 <?php
 
 namespace App\Entity\Repository;
-use App\Entity\Customer;
 
 
 class CustomerRepository extends AbstractRepository

@@ -30,11 +30,11 @@ abstract class AbstractRepository implements RepositoryInterface,EntityInterface
 
     /**
      * @param int $id
-     * @return \App\Entity\Customer
+     * @return EntityInterface
      */
     public function find(int $id) : EntityInterface
     {
-        //TODO return customer filtré par id
+        //TODO return class filtré par id
 
         $sql = $this->getConnexion()->prepare("SELECT * FROM $this->table_name WHERE id= :id");
         $sql->bindParam(':id', $id);
@@ -43,7 +43,8 @@ abstract class AbstractRepository implements RepositoryInterface,EntityInterface
     }
 
     /**
-     * @param int $id
+     * @param $column
+     * @param $value
      * @return EntityInterface[]
      */
     public function findBy($column, $value) : array
