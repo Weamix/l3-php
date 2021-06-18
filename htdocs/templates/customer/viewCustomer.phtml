@@ -1,0 +1,30 @@
+<?php
+$customers = $this->getData('customers');
+$customer_by_column =  $this->getData('customer_by_column');
+$customer_by_id =  $this->getData('customer_by_id');
+?>
+
+<?php include(BASE_DIR . '/templates/head.phtml') ?>
+
+Ma view Customer Page : findAll
+<ul>
+
+<?php foreach ($customers as $customer) : ?>
+    <li><?= $customer->getLastname() ?> à <?= $customer->getFirstname() ?>€</li>
+<?php endforeach; ?>
+</ul>
+
+    Ma view Customer Page : findBy
+    <ul>
+<?php foreach ($customer_by_column as $customer) : ?>
+    <li><?= $customer->getLastname() ?> à <?= $customer->getFirstname() ?>€</li>
+<?php endforeach; ?>
+    </ul>
+
+    Ma view Customer Page : find($id)
+    <ul>
+            <li><?= $customer_by_id->getLastname() ?> à <?= $customer_by_id->getFirstname() ?>€</li>
+    </ul>
+
+
+<?php include(BASE_DIR . '/templates/footer.phtml') ?>
