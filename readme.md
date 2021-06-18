@@ -14,12 +14,11 @@ Branch tp5 :
 
 ### TP7 : Symfony✅
 
-Routes :
-/catalog
-/catalog/product
-/catalog/product/{id}
-/customers
-/customers/customer
-/customers/{id}
-
-+ Form (add Product)
+#### Routes :
+##### /catalog
+##### /catalog/product
+##### /catalog/product/{id}
+##### /customers
+##### /customers/customer
+##### /customers/{id}
+##### + Form (add Product)
