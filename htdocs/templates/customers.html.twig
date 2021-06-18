@@ -1,0 +1,11 @@
+{% extends "base.html.twig" %}
+
+{% block title %}View customers !{% endblock %}
+
+{% block body %}
+    <h2> ViewAll customers</h2>
+    {% for customer in customers %}
+        <li> Mr/Mme {{ customer.firstname }} {{ customer.lastname }} a {{ customer.age }} ans</li>
+    {% endfor %}
+{% endblock %}
+

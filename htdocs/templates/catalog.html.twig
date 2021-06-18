@@ -1,0 +1,11 @@
+{% extends "base.html.twig" %}
+
+{% block title %}View catalog page!{% endblock %}
+
+{% block body %}
+    <h2> ViewAll products on Catalog Page</h2>
+    {% for products in products %}
+        <li>{{ products.name }} au prix de {{ products.price }} euros</li>
+    {% endfor %}
+{% endblock %}
+
