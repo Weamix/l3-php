@@ -13,7 +13,7 @@ class CustomerController extends AbstractController
         $customer_by_id = [];
         $customer_by_column = [];
 
-        $customerRepo = new \App\Entity\Repository\Customer();
+        $customerRepo = new \App\Entity\Repository\CustomerRepository();
         $customers = $customerRepo->findAll();
 
         $customer_by_id = $customerRepo->find(1);
