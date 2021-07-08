@@ -7,5 +7,8 @@
     {% for products in products %}
         <li>{{ products.name }} au prix de {{ products.price }} euros</li>
     {% endfor %}
+
+    {{ form(form) }}
+
 {% endblock %}
 

@@ -12,7 +12,7 @@ Branch tp5 :
 ### TP5 : pdo + connexion singleton + repository product&customer ✅
 ### TP6 : composer/guzzle/todos ✅
 
-### TP7 : Symfony✅
+### TP7 : Symfony (same projet as in poo php)✅
 
 #### Routes :
 ##### /catalog
