@@ -46,11 +46,22 @@
                     {% if match.date is not null %}
                         Date du match : {{ match.date}}
 
+
+                    {% endif %}
+                    {% if app.user and 'now'|date('Y-m-d H-m-s', "Europe/Paris") < match.date|date('Y-m-d H-m-s', "Europe/Paris") %}
+                        <form method="POST" action="bet">
+                            <label for="inputScore1">Score domicile</label>
+                            <input type="number" name="Score domicile" id="inputScore1" class="form-control" min=0>
+                            <label for="inputScore2">Score extérieur</label>
+                            <input type="number" name="Score extérieur" id="inputScore2" class="form-control" min=0>
+                            <button class="btn btn-lg btn-primary" type="submit">
+                                Parier
+                            </button>
+                        </form>
                     {% endif %}
                 {% endif %}
             </ul>
         </li>
-
     {% endfor %}
 
 </div>
