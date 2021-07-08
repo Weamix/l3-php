@@ -8,14 +8,23 @@
     .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
 </style>
 
-<div class="example-wrapper">
-    <h1>Hello {{ app.user.username | default('anonyme')}}! ✅</h1>
+    {% if app.user %}
+        <div class="example-wrapper">
+        <h1>Hello {{ app.user.username | default('anonyme')}}! ✅</h1>
 
-    Vous avez parié :
-    <ul>
-        {% for bet in bets %}
-            <li>Match n° {{bet.id}} score domicile : {{bet.scoreDomicile}} - score exterieur : {{bet.scoreExterieur}} </li>
+        Vous avez parié :
+        <ul>
+        {% for key,match in matchs %}
+            {% for bet in bets %}
+                {% if bet.idMatch == key %}
+                <li>Ticket n° {{bet.id}} - {{ match.teams.domicile }} VS {{ match.teams.exterieur }} avec score domicile : {{bet.scoreDomicile}} - score exterieur : {{bet.scoreExterieur}} </li>
+                {% endif %}
+            {% endfor %}
         {% endfor %}
-    </ul>
+        </ul>
+
+
+     {% endif %}
+
 </div>
 {% endblock %}

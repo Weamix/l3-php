@@ -22,10 +22,14 @@ class ProfilController extends AbstractController
         $userId = $user->getId();
         $bets = $betRepository->findBy(['idUser'=>$userId]);
 
+        $json = file_get_contents('../matchs.json');
+        $matchs = json_decode($json,true);
+
 
         return $this->render('profil/index.html.twig', [
             'controller_name' => 'ProfilController',
-            'bets' => $bets
+            'bets' => $bets,
+            'matchs' => $matchs
         ]);
     }
 }
