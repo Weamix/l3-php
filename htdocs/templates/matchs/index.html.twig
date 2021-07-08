@@ -12,7 +12,7 @@
     <h1>Hello on Matchs list ✅</h1>
 
 
-    {% for match in matchs %}
+    {% for key,match in matchs %}
         <li>
             {{ match.teams.domicile }} VS {{ match.teams.exterieur }}
             <ul>
@@ -46,14 +46,14 @@
                     {% if match.date is not null %}
                         Date du match : {{ match.date}}
 
-
                     {% endif %}
                     {% if app.user and 'now'|date('Y-m-d H-m-s', "Europe/Paris") < match.date|date('Y-m-d H-m-s', "Europe/Paris") %}
                         <form method="POST" action="bet">
-                            <label for="inputScore1">Score domicile</label>
-                            <input type="number" name="Score domicile" id="inputScore1" class="form-control" min=0>
+                            <label for="scoreDomicile">Score domicile</label>
+                            <input type="number" name="scoreDomicile" id="inputScore1" class="form-control" min=0>
                             <label for="inputScore2">Score extérieur</label>
-                            <input type="number" name="Score extérieur" id="inputScore2" class="form-control" min=0>
+                            <input type="number" name="scoreExterieur" id="scoreExterieur" class="form-control" min=0>
+                            <input id="matchId" name="matchId" type="hidden" value="{{ key }}">
                             <button class="btn btn-lg btn-primary" type="submit">
                                 Parier
                             </button>

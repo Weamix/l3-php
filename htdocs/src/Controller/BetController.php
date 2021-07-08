@@ -8,28 +8,35 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
+use Symfony\Component\Security\Core\User\UserInterface;
 
 class BetController extends AbstractController
 {
     /**
      * @Route("/bet", name="bet",methods={"POST"})
      * @param Request $request
+     * @param User $user
      * @return Response
      */
-    public function index(Request $request): Response
+    public function index(Request $request, UserInterface $user): Response
     {
 
-        $score1 = $request->get("form")["score1"];
-        $score2 = $request->get("form")["score2"];
+        $scoreExterieur = $request->request->get("scoreExterieur");
+        $scoreDomicile = $request->request->get("scoreDomicile");
+        $matchId = $request->request->get("matchId");
+
+        //$data = $request->request->all();
+
+        $userId = $user->getId();
 
         $entityManager = $this->getDoctrine()->getManager();
 
         $bet = new Bet();
 
-        $bet->setIdMatch(1);
-        $bet->setIdUser(1);
-        $bet->setScoreDomicile(1);
-        $bet->setScoreExterieur(1);
+        $bet->setIdMatch($matchId);
+        $bet->setIdUser($userId);
+        $bet->setScoreDomicile($scoreDomicile);
+        $bet->setScoreExterieur($scoreExterieur);
         $entityManager->persist($bet);
         $entityManager->flush();
 
