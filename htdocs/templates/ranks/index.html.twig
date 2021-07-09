@@ -9,12 +9,13 @@
 </style>
 
 <div class="example-wrapper">
-    <h1>Hello {{ controller_name }}! ✅</h1>
+    <h1>Hello voici le classement de nos joueurs! ✅</h1>
 
-    This friendly message is coming from:
-    <ul>
-        <li>Your controller at <code><a href="{{ '/var/www/html/htdocs/src/Controller/RanksController.php'|file_link(0) }}">src/Controller/RanksController.php</a></code></li>
-        <li>Your template at <code><a href="{{ '/var/www/html/htdocs/templates/ranks/index.html.twig'|file_link(0) }}">templates/ranks/index.html.twig</a></code></li>
-    </ul>
+    {% for key,rank in ranks %}
+        N°{{ key+1 }} -
+        {{ rank[0] }} points pour le joueur
+        {{  rank[1] }}
+        <br>
+    {% endfor %}
 </div>
 {% endblock %}

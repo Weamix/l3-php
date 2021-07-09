@@ -65,7 +65,7 @@
                         {% if app.user and 'now'|date('Y-m-d H-m-s', "Europe/Paris") < match.date|date('Y-m-d H-m-s', "Europe/Paris") %}
                             <form method="POST" action="bet">
                                 <label for="scoreDomicile">Score domicile</label>
-                                <input type="number" name="scoreDomicile" id="inputScore1" class="form-control" min=0 max=149>
+                                <input type="number" name="scoreDomicile" id="scoreDomicile" class="form-control" min=0 max=149>
                                 <label for="inputScore2">Score extérieur</label>
                                 <input type="number" name="scoreExterieur" id="scoreExterieur" class="form-control" min=0 max=149>
                                 <input id="matchId" name="matchId" type="hidden" value="{{ key }}">

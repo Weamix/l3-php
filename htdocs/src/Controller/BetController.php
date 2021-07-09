@@ -3,7 +3,6 @@
 namespace App\Controller;
 
 use App\Entity\Bet;
-use App\Entity\User;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -15,7 +14,7 @@ class BetController extends AbstractController
     /**
      * @Route("/bet", name="bet",methods={"POST"})
      * @param Request $request
-     * @param User $user
+     * @param UserInterface $user
      * @return Response
      */
     public function index(Request $request, UserInterface $user): Response
@@ -41,11 +40,6 @@ class BetController extends AbstractController
         $entityManager->flush();
 
         return $this->redirectToRoute('profil');
-
-
-        /*return $this->render('bet/index.html.twig', [
-            'controller_name' => 'BetController',
-        ]);*/
     }
 
 }

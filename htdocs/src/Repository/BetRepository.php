@@ -5,6 +5,7 @@ namespace App\Repository;
 use App\Entity\Bet;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Doctrine\Persistence\ManagerRegistry;
+use GuzzleHttp\Client;
 
 /**
  * @method Bet|null find($id, $lockMode = null, $lockVersion = null)
@@ -47,4 +48,15 @@ class BetRepository extends ServiceEntityRepository
         ;
     }
     */
+
+    public function getAllMatchsFromJson()
+    {
+        //$client = new Client();
+        //$response = $client->get("URL");
+
+        $json = file_get_contents('../matchs.json');
+        $matchs = json_decode($json,true);
+
+        return $matchs;
+    }
 }
