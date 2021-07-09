@@ -21,7 +21,10 @@
 
 <div class="example-wrapper">
     <h1>Hello on Matchs list ✅</h1>
-
+    {% if not app.user %}
+        Pour pouvoir parrier, vous devez vous <a href="/public/index.php/register?">créer un compte</a> <br>
+        Si vous possédez déjà un compte, <a href="/public/index.php/login?">connectez-vous</a>
+    {%  endif %}
 
     {% for key,match in matchs %}
         <div class="border">
