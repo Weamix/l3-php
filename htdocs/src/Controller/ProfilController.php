@@ -23,9 +23,6 @@ class ProfilController extends AbstractController
         $userId = $user->getId();
         $bets = $betRepository->findBy(['idUser'=>$userId]);
 
-        //$json = file_get_contents('../matchs.json');
-        //$matchs = json_decode($json,true);
-
         $matchs = $betRepository->getAllMatchsFromJson();
         $points = 0;
 
@@ -35,7 +32,6 @@ class ProfilController extends AbstractController
                     $counter_match = 0;
                     if(isset($match['scores'])){
 
-                        //dd($matchs);
                         $scores = $match['scores'];
                         $score_match_ext  = $scores["exterieur"];
                         $score_match_dom  = $scores["domicile"];
