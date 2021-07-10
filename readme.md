@@ -7,8 +7,11 @@ Voir "Projet.pdf"
 La BDD est à la racine du projet
 
 Comptes tests(login/password) :
+
 test3@gmail.com test3@gmail.com
+
 test1@gmail.com test1@gmail.com
+
 test4@gmail.com test4@gmail.com
 
 ### Consignes
