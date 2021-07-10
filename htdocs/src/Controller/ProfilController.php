@@ -45,15 +45,15 @@ class ProfilController extends ScoreController
     }
 
     public function getRankByProfil($ranks, $user){
-        $rank = 0;
+        $rank = 1;
         $i = 0;
         $userEmail = $user->getEmail();
         do{
-            if($ranks[1][$i] == $userEmail){
+            if($ranks[$i][1] == $userEmail){
                 $rank = $i + 1;
             }
             $i++;
-        }while($i != sizeof($ranks)-1);
+        }while($i != sizeof($ranks));
         return $rank;
     }
 

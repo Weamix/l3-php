@@ -26,7 +26,12 @@ class ScoreController extends AbstractController
                         $match_winner = $score_match_dom > $score_match_ext ? "domicile" : "exterieur";
                         $prono_match_winner = $prono_match_dom > $prono_match_ext ? "domicile" : "exterieur";
 
-                        if($match_winner == $prono_match_winner ){
+                        if($scores["tireaubut"] == true){
+                            if($scores["winner"] == $match_winner){
+                                $counter_match = 1;
+                            }
+                        }
+                        else if($match_winner == $prono_match_winner ){
                             $counter_match = 1;
                             if($prono_match_ext == $score_match_ext && $prono_match_dom == $score_match_dom ){
                                 $counter_match = 3;
