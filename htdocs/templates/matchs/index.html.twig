@@ -15,68 +15,102 @@
         border-radius: 20px;
         padding: 16px;
         margin: 10px;
+        background-color: rgb(244, 246, 248);
+    }
+    .content{
+        margin: 0 auto;
+        width: 500px;
+        text-align: center;
+    }
+    input {
+        width: 46px;
+        height: 46px;
+        font-size: 26px;
+        text-align: center;
+        color: rgb(37, 117, 252);
+        background-color: rgb(255, 255, 255);
+        border-radius: 4px;
+        border-width: 1px;
+        border-color: rgb(216, 218, 232);
+    }
+    .bet_inputs{
+        text-align: center;
+    }
+    .bet_inputs input{
+        width: 80px !important;
+    }
+    .bet_button{
+        text-align: center;
+        margin: 20px auto auto auto;
+    }
+    .tirsauxbuts{
+        margin: 0 auto;
+        width: 300px;
     }
 
 </style>
 
 <div class="example-wrapper">
-    <h1>Hello on Matchs list ✅</h1>
+    <h1>Les matchs ⚽</h1>
     {% if not app.user %}
         Pour pouvoir parrier, vous devez vous <a href="/public/index.php/register?">créer un compte</a> <br>
         Si vous possédez déjà un compte, <a href="/public/index.php/login?">connectez-vous</a>
     {%  endif %}
 
     {% for key,match in matchs %}
+        {% if match.date is defined %}
+            {% if match.date is not null %}
+                {{ match.date |date('d/m/Y à H:i') }}
+            {% endif %}
+        {% endif %}
         <div class="border">
-            <li>
-                {{ match.teams.domicile }} VS {{ match.teams.exterieur }}
-                <ul>
-                    {% if match.scores.domicile is defined %}
-                        {% if match.scores.domicile is not null %}
-                            Score : {{ match.scores.domicile}} - {{ match.scores.exterieur }}
+                <div class="content">
+                    <div class ="countries">
+                        <b>{{ match.teams.domicile }}</b> VS <b>{{ match.teams.exterieur }}</b>
+                    </div>
+                    <div class ="scores">
+                        {% if match.scores.domicile is defined %}
+                            {% if match.scores.domicile is not null %}
+                            <input type="text" name="scores-domicile" value="{{ match.scores.domicile}}" disabled="disabled" />
+                            -
+                            <input type="text" name="scores-domicile" value="{{ match.scores.exterieur}}" disabled="disabled" />
+                    </div>
+                    <div class ="tirsauxbuts">
+                            {% if match.scores.tireaubut == true %}
+                                {% if match.scores.tireaubut is defined %}
+                                    Tir aux buts - vainqueur :
 
-                        <ul>
-                        {% if match.scores.tireaubut == true %}
-                            {% if match.scores.tireaubut is defined %}
-                                Tir aux buts - vainqueur :
+                                    {% if match.scores.winner == "exterieur" %}
+                                        {{ match.teams.exterieur }}
+                                    {% endif %}
 
-                                {% if match.scores.winner == "exterieur" %}
-                                    {{ match.teams.exterieur }}
-                                {% endif %}
-
-                                {% if match.scores.winner == "domicile" %}
-                                    {{ match.teams.domicile }}
+                                    {% if match.scores.winner == "domicile" %}
+                                        {{ match.teams.domicile }}
+                                    {% endif %}
                                 {% endif %}
                             {% endif %}
-                        {% endif %}
-                        </ul>
 
+                            {% endif %}
                         {% endif %}
-                    {% endif %}
-
-                </ul>
-
-                <ul>
-                    {% if match.date is defined %}
-                        {% if match.date is not null %}
-                            Date du match : {{ match.date}}
-
+                    </div>
+                        {% if match.date is defined %}
+                            {% if app.user and 'now'|date('Y-m-d H-m-s', "Europe/Paris") < match.date|date('Y-m-d H-m-s', "Europe/Paris") %}
+                                <form method="POST" action="bet">
+                                    <div class="bet_inputs">
+                                        <input type="number" name="scoreDomicile" id="scoreDomicile" class="form-control" min=0 max=149>
+                                        -
+                                        <input type="number" name="scoreExterieur" id="scoreExterieur" class="form-control" min=0 max=149>
+                                        <input id="matchId" name="matchId" type="hidden" value="{{ key }}">
+                                    </div>
+                                        <div class="bet_button">
+                                        <button class="btn btn-lg btn-primary" type="submit">
+                                            Parier
+                                        </button>
+                                    </div>
+                                </form>
+                            {% endif %}
                         {% endif %}
-                        {% if app.user and 'now'|date('Y-m-d H-m-s', "Europe/Paris") < match.date|date('Y-m-d H-m-s', "Europe/Paris") %}
-                            <form method="POST" action="bet">
-                                <label for="scoreDomicile">Score domicile</label>
-                                <input type="number" name="scoreDomicile" id="scoreDomicile" class="form-control" min=0 max=149>
-                                <label for="inputScore2">Score extérieur</label>
-                                <input type="number" name="scoreExterieur" id="scoreExterieur" class="form-control" min=0 max=149>
-                                <input id="matchId" name="matchId" type="hidden" value="{{ key }}">
-                                <button class="btn btn-lg btn-primary" type="submit">
-                                    Parier
-                                </button>
-                            </form>
-                        {% endif %}
-                    {% endif %}
-                </ul>
-            </li>
+                </div>
         </div>
     {% endfor %}
 
