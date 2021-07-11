@@ -15,8 +15,8 @@ test1@gmail.com test1@gmail.com
 test4@gmail.com test4@gmail.com
 
 Logged on an account : 
-![image](https://user-images.githubusercontent.com/25066854/125173511-0b085d00-e1c0-11eb-95a7-3ca4bba3f52a.png)
-![image](https://user-images.githubusercontent.com/25066854/125173513-1065a780-e1c0-11eb-9234-dcfb0955b7c7.png)
+![image](https://user-images.githubusercontent.com/25066854/125207423-9e0ec900-e28c-11eb-98f3-45dceb46a042.png)
+![image](https://user-images.githubusercontent.com/25066854/125207437-a6670400-e28c-11eb-8906-bf1feffdf263.png)
 ![image](https://user-images.githubusercontent.com/25066854/125173519-152a5b80-e1c0-11eb-8c8f-8174dff41e68.png)
 ![image](https://user-images.githubusercontent.com/25066854/125173523-19ef0f80-e1c0-11eb-9a63-d36d36504932.png)
 ![image](https://user-images.githubusercontent.com/25066854/125173527-1eb3c380-e1c0-11eb-9c1f-e73ca9b2b18e.png)
