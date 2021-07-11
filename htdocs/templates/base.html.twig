@@ -17,7 +17,7 @@
     <body>
             <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
                 <div class="container-fluid">
-                    <a class="navbar-brand" href="/public/index.php/">⚽ MonPetitProno</a>
+                    <a class="navbar-brand" href="{{path('home')}}">⚽ MonPetitProno</a>
                     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarColor01" aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">
                         <span class="navbar-toggler-icon"></span>
                     </button>
@@ -25,36 +25,36 @@
                     <div class="collapse navbar-collapse" id="navbarColor01">
                         <ul class="navbar-nav me-auto">
                             <li class="nav-item">
-                                <a class="nav-link active" href="/public/index.php/">Home
+                                <a class="nav-link active" href="{{path('home')}}">Home
                                     <span class="visually-hidden">(current)</span>
                                 </a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="/public/index.php/matchs">Matchs</a>
+                                <a class="nav-link" href="{{path('match')}}">Matchs</a>
                             </li>
                             {% if app.user %}
                             <li class="nav-item">
-                                <a class="nav-link" href="/public/index.php/profil">Profil</a>
+                                <a class="nav-link" href="{{path('profil')}}">Profil</a>
                             </li>
                             {% endif %}
                             <li class="nav-item">
-                                <a class="nav-link" href="/public/index.php/ranks">Classement</a>
+                                <a class="nav-link" href="{{path('ranks')}}">Classement</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="/public/index.php/contact">Contact</a>
+                                <a class="nav-link" href="{{path('contact')}}">Contact</a>
                             </li>
                         </ul>
                     </div>
 
                     {% if app.user %}
-                        <form action="/public/index.php/logout">
+                        <form action="{{path('app_logout')}}">
                             <button class="btn btn-secondary">Se déconnecter</button>
                         </form>
                     {% else %}
-                        <form action="/public/index.php/register">
+                        <form action="{{path('app_register')}}">
                             <button class="btn btn-outline-secondary">S'enregistrer</button>
                         </form>
-                        <form action="/public/index.php/login">
+                        <form action="{{path('app_login')}}">
                             <button class="btn btn-secondary">Se connecter</button>
                         </form>
                     {% endif %}
