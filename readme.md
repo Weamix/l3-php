@@ -13,7 +13,8 @@ test3@gmail.com test3@gmail.com
 test1@gmail.com test1@gmail.com
 
 test4@gmail.com test4@gmail.com
-
+___
+### Démo
 Logged on an account : 
 ![image](https://user-images.githubusercontent.com/25066854/125207423-9e0ec900-e28c-11eb-98f3-45dceb46a042.png)
 ![image](https://user-images.githubusercontent.com/25066854/125207437-a6670400-e28c-11eb-8906-bf1feffdf263.png)
@@ -22,11 +23,11 @@ Logged on an account :
 ![image](https://user-images.githubusercontent.com/25066854/125173527-1eb3c380-e1c0-11eb-9c1f-e73ca9b2b18e.png)
 
 Anonyme :
-![image](https://user-images.githubusercontent.com/25066854/125173538-2a9f8580-e1c0-11eb-86b6-a586313b8409.png)
+![image](https://user-images.githubusercontent.com/25066854/125207487-d0202b00-e28c-11eb-925f-9f20d384be47.png)
 ![image](https://user-images.githubusercontent.com/25066854/125173540-2ecba300-e1c0-11eb-80c4-2f26f46c3196.png)
 ![image](https://user-images.githubusercontent.com/25066854/125173542-32f7c080-e1c0-11eb-9a18-9827d0739bc8.png)
 
-
+___
 ### Consignes
 
 #### 1. Home Page ✅
